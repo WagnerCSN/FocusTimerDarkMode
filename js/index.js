@@ -23,16 +23,6 @@ minutesDisplay,
     dark
 }from "./elements.js"
 
-dark.addEventListener('click', function(){
-    displayModes.darkModeColors()
-    displayModes.toggleIconsMode()
-})
-
-light.addEventListener('click', function(){
-    displayModes.lightModeColors()
-    displayModes.toggleIconsMode()
-})
-
 const displayModes = DisplayModes({
     document,
     light,
@@ -52,7 +42,16 @@ const timer = Timer({
 
 const sound = Sound({
     audio
-  
+})
+
+dark.addEventListener('click', function(){
+    displayModes.darkModeColors()
+    displayModes.toggleIconsMode()
+})
+
+light.addEventListener('click', function(){
+    displayModes.lightModeColors()
+    displayModes.toggleIconsMode()
 })
 
 buttonIncreaseMinutes.addEventListener('click', function (){
@@ -131,11 +130,7 @@ buttonLareira.addEventListener('click', function (){
         controlsVolumeCafeteria.value='0'
 })
 
-function controlVolume(){
-    if(audio.currentSrc==audio.src){
-        
-    }
-}
+
 
 
 
