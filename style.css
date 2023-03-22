@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    font-size: 62.5%;
+
+    --fc-heading: rgba(50, 50, 56, 1);
+    --bg-primary: white;
+    --bg-buttom: #E1E1E6;
+    --ff-time: "Roboto", sans-serif;
+}
+
+body{
+    font-size: 1.6rem;
+}
+
+main{
+    height: 100vh;
+    display: flex;
+    gap: 19.2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.vrapper-card{
+    display: grid;
+    gap: 3.2rem;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 138px 138px;
+    grid-template-rows: 152px 152px;
+}
+
+.timer{
+    display: grid;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.time span{
+    font-weight: 500;
+    font-size: 12.5rem;
+    line-height: 14.8rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: var(--ff-time);
+}
+
+.controls{
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+}
+
+button{
+    
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.card button{
+    border-radius: 2.4rem;
+    width: 13.8rem;
+    height: 15.2rem;
+    background: var(--bg-buttom) ; 
+    cursor: pointer;
+}
+
+.card button:focus svg path{
+    fill: white;
+}
+
+.card button #volume{
+    margin-top: 3.2rem;
+    width: 9rem;
+    height: 1.6rem;
+}
+
+
