@@ -119,6 +119,7 @@ buttonCafeteria.addEventListener('click', function (){
 
 buttonLareira.addEventListener('click', function (){
     audio.src ="./sounds/Lareira.wav"
+    sound.playingAudio ()
     if(audio.currentSrc!=audio.src){
         controlsVolumeLareira.value= '50'
     }else{
@@ -128,9 +129,13 @@ buttonLareira.addEventListener('click', function (){
         controlsVolumeChuva.value='0'
         controlsVolumeFloresta.value='0'
         controlsVolumeCafeteria.value='0'
-        sound.playingAudio ()
 })
 
+function controlVolume(){
+    if(audio.currentSrc==audio.src){
+        
+    }
+}
 
 
 
