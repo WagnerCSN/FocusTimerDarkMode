@@ -20,12 +20,23 @@ minutesDisplay,
     controlsVolumeLareira
 }from "./elements.js"
 
+const light = document.querySelector('.light')
+const dark = document.querySelector('.dark')
+
+dark.addEventListener('click', function(){
+    dark.classList.toggle('off')
+    light.classList.toggle('off')
+    document.body.style.background='black'
+})
+
+light.addEventListener('click', function(){
+    dark.classList.toggle('off')
+    light.classList.toggle('off')
+    document.body.style.background='white'
+})
 
 function vol(value){
-    
-    audio.volume=value/100
-    
-    
+     audio.volume=value/100
 }
 
 const controls = Controls({

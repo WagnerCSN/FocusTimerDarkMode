@@ -15,6 +15,7 @@
 
 body{
     font-size: 1.6rem;
+    background: var(--bg-primary);
 }
 
 main{
@@ -23,6 +24,7 @@ main{
     gap: 19.2rem;
     justify-content: center;
     align-items: center;
+    padding: 6.4rem;
 }
 
 .vrapper-card{
@@ -37,7 +39,7 @@ main{
 .timer{
     display: grid;
     justify-content: center;
-    padding: 2rem;
+   
 }
 
 .time span{
@@ -68,16 +70,32 @@ button{
     height: 15.2rem;
     background: var(--bg-buttom) ; 
     cursor: pointer;
+    
 }
 
 .card button:focus svg path{
     fill: white;
 }
 
-.card button #volume{
+.card button input{
     margin-top: 3.2rem;
     width: 9rem;
     height: 1.6rem;
 }
+
+.styleMode{
+    align-self: start;
+    justify-self: center;
+}
+
+.light path:hover{
+    fill: #02799D; 
+    
+}
+
+.off{
+    display: none;
+}
+
 
 
