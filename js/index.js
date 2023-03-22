@@ -1,6 +1,7 @@
 import Controls from "./controls.js"
 import Timer from "./timer.js"
 import Sound from "./sound.js"
+import DisplayModes from "./displayModes.js"
 import {
 minutesDisplay,
     secondsDisplay,
@@ -17,27 +18,26 @@ minutesDisplay,
     controlsVolumeFloresta,
     controlsVolumeChuva, 
     controlsVolumeCafeteria,
-    controlsVolumeLareira
+    controlsVolumeLareira,
+    light,
+    dark
 }from "./elements.js"
 
-const light = document.querySelector('.light')
-const dark = document.querySelector('.dark')
-
 dark.addEventListener('click', function(){
-    dark.classList.toggle('off')
-    light.classList.toggle('off')
-    document.body.style.background='black'
+    displayModes.darkModeColors()
+    displayModes.toggleIconsMode()
 })
 
 light.addEventListener('click', function(){
-    dark.classList.toggle('off')
-    light.classList.toggle('off')
-    document.body.style.background='white'
+    displayModes.lightModeColors()
+    displayModes.toggleIconsMode()
 })
 
-function vol(value){
-     audio.volume=value/100
-}
+const displayModes = DisplayModes({
+    document,
+    light,
+    dark
+})
 
 const controls = Controls({
     minutesDisplay
@@ -51,11 +51,8 @@ const timer = Timer({
 })
 
 const sound = Sound({
-    buttonLareira,
-    buttonCafeteria,
-    buttonChuva,
-    buttonFlorest,
     audio
+  
 })
 
 buttonIncreaseMinutes.addEventListener('click', function (){
@@ -72,7 +69,6 @@ buttonPlay.addEventListener('click', function (){
 
 buttonStop.addEventListener('click', function(){
     timer.updateDisplay()
-    sound.backgroundColorInitial()
     controlsVolumeChuva.value='0'
     controlsVolumeFloresta.value='0'
     controlsVolumeCafeteria.value='0'
@@ -81,29 +77,26 @@ buttonStop.addEventListener('click', function(){
 
 buttonFlorest.addEventListener('click', function (){
     audio.src = "./sounds/Floresta.wav"
-    sound.colorFocusSound()
     sound.playingAudio ()
     if(audio.currentSrc!=audio.src){
         controlsVolumeFloresta.value= '50'
     }else{
         controlsVolumeFloresta.addEventListener('input', ()=> {
-        vol(controlsVolumeFloresta.value)
+        sound.vol(controlsVolumeFloresta.value)
     })}
     controlsVolumeChuva.value='0'
     controlsVolumeLareira.value='0'
     controlsVolumeCafeteria.value='0'
-    
 })
 
 buttonChuva.addEventListener('click', function (){
     audio.src = "./sounds/Chuva.wav"
-    sound.colorFocusSound()
     sound.playingAudio ()
     if(audio.currentSrc!=audio.src){
         controlsVolumeChuva.value= '50'
     }else{
         controlsVolumeChuva.addEventListener('input', ()=> {
-        vol(controlsVolumeChuva.value)
+        sound.vol(controlsVolumeChuva.value)
     })}
     controlsVolumeFloresta.value='0'
     controlsVolumeLareira.value='0'
@@ -112,13 +105,12 @@ buttonChuva.addEventListener('click', function (){
 
 buttonCafeteria.addEventListener('click', function (){
     audio.src = "./sounds/Cafeteria.wav"
-    sound.colorFocusSound()
     sound.playingAudio ()
     if(audio.currentSrc!=audio.src){
         controlsVolumeCafeteria.value= '50'
     }else{
         controlsVolumeCafeteria.addEventListener('input', ()=> {
-        vol(controlsVolumeCafeteria.value)
+        sound.vol(controlsVolumeCafeteria.value)
     })}
     controlsVolumeChuva.value='0'
     controlsVolumeLareira.value='0'
@@ -127,18 +119,19 @@ buttonCafeteria.addEventListener('click', function (){
 
 buttonLareira.addEventListener('click', function (){
     audio.src ="./sounds/Lareira.wav"
-    sound.colorFocusSound()
-    sound.playingAudio ()
     if(audio.currentSrc!=audio.src){
         controlsVolumeLareira.value= '50'
     }else{
         controlsVolumeLareira.addEventListener('input', ()=> {
-        vol(controlsVolumeLareira.value)
-    })}
-    controlsVolumeChuva.value='0'
-    controlsVolumeFloresta.value='0'
-    controlsVolumeCafeteria.value='0'
+            sound.vol(controlsVolumeLareira.value)
+        })}
+        controlsVolumeChuva.value='0'
+        controlsVolumeFloresta.value='0'
+        controlsVolumeCafeteria.value='0'
+        sound.playingAudio ()
 })
+
+
 
 
 

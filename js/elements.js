@@ -10,6 +10,8 @@ const controlsVolumeFloresta = document.querySelector('#volumeFloresta')
 const controlsVolumeChuva = document.querySelector('#volumeChuva')
 const controlsVolumeCafeteria = document.querySelector('#volumeCafeteria')
 const controlsVolumeLareira = document.querySelector('#volumeLareira')
+const light = document.querySelector('.light')
+const dark = document.querySelector('.dark')
 let minutesDisplay = document.querySelector('.minutes')
 let secondsDisplay = document.querySelector('.seconds')
 let audio = new Audio()
@@ -31,5 +33,7 @@ export{
     controlsVolumeFloresta,
     controlsVolumeChuva, 
     controlsVolumeCafeteria,
-    controlsVolumeLareira
+    controlsVolumeLareira,
+    light,
+    dark
 }

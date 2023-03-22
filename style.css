@@ -7,24 +7,34 @@
 :root{
     font-size: 62.5%;
 
-    --fc-heading: rgba(50, 50, 56, 1);
-    --bg-primary: white;
-    --bg-buttom: #E1E1E6;
+    --fc-time: rgba(50, 50, 56, 1);
+    --cc-controls: rgba(50, 50, 56, 1);
+    --bg-body-primary: rgba(229, 229, 229, 1);
+    --bg-main-primary: rgba(255, 255, 255, 1);
+    --bg-buttom: rgba(225, 225, 230, 1);
+    --bg-buttom-focus: rgba(02, 121, 157, 1);
+    --fc-buttom-focus-icon: rgba(255, 255, 255, 1);
     --ff-time: "Roboto", sans-serif;
 }
 
 body{
     font-size: 1.6rem;
-    background: var(--bg-primary);
+    background: var(--bg-body-primary);
+    height: 100vh;
+    display: grid;
 }
 
 main{
-    height: 100vh;
+    justify-self: center;
+    align-self: center;
     display: flex;
     gap: 19.2rem;
     justify-content: center;
     align-items: center;
     padding: 6.4rem;
+    background: var(--bg-main-primary);
+    width: 128rem;
+    height: 72rem;
 }
 
 .vrapper-card{
@@ -32,14 +42,13 @@ main{
     gap: 3.2rem;
     justify-content: center;
     align-items: center;
-    grid-template-columns: 138px 138px;
-    grid-template-rows: 152px 152px;
+    grid-template-columns: 13.8rem 13.8rem;
+    grid-template-rows: 15.2rem 15.2rem;
 }
 
 .timer{
     display: grid;
     justify-content: center;
-   
 }
 
 .time span{
@@ -49,6 +58,7 @@ main{
     text-align: center;
     text-transform: uppercase;
     font-family: var(--ff-time);
+    color: var(--fc-time);
 }
 
 .controls{
@@ -58,7 +68,6 @@ main{
 }
 
 button{
-    
     border: none;
     background: transparent;
     cursor: pointer;
@@ -70,11 +79,10 @@ button{
     height: 15.2rem;
     background: var(--bg-buttom) ; 
     cursor: pointer;
-    
 }
 
 .card button:focus svg path{
-    fill: white;
+    fill: var(--fc-buttom-focus-icon);
 }
 
 .card button input{
@@ -83,14 +91,21 @@ button{
     height: 1.6rem;
 }
 
+.card button:focus{
+    background: var(--bg-buttom-focus);
+}
+
 .styleMode{
     align-self: start;
     justify-self: center;
 }
 
-.light path:hover{
-    fill: #02799D; 
-    
+.styleMode path:hover{
+    fill: var(--bg-buttom-focus); 
+}
+
+path{
+    fill: var(--fc-time);
 }
 
 .off{
